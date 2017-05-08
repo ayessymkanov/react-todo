@@ -1,0 +1,33 @@
+{
+  "name": "todo-app",
+  "version": "1.0.0",
+  "description": "My first React application. Hope no puppy will die :)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --hot --inline --port 8009"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ayessymkanov/react-todo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ayessymkanov/react-todo/issues"
+  },
+  "homepage": "https://github.com/ayessymkanov/react-todo#readme",
+  "devDependencies": {
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
+  },
+  "dependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "webpack": "^2.5.1",
+    "webpack-dev-server": "^2.4.5"
+  }
+}
