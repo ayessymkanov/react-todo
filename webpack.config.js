@@ -1,15 +1,15 @@
 module.exports = {
-    entry: {
-        path: __dirname + '/app',
-        filename: 'app.js'
-    },
+    entry: [
+        './app/app.js'
+    ],
     output: {
-        path: __dirname + '/app/static',
+        publicPath: 'app/dist',
         filename: 'bundle.js'
     },
     module: {
         loaders: [
-            {test: /\.js/, loaders: ['babel-loader']}
+            {test: /\.js/, loaders: ['babel-loader']},
+            {test: /\.css/, loaders: ['style-loader', 'css-loader']}
         ]
     }
 }
