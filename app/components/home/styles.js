@@ -10,7 +10,20 @@ export const TodoListContainer = styled.div`
 
 export const Title = styled.h1`
     font-size: 20px;
-    text-align: center;
-    margin: 10px 0;
+    margin: 0;
     text-transform: uppercase;
+    flex: 1
+`
+
+export const Menubar = styled.div`
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #aaa;
+`
+
+export const ControlButtons = styled.div`
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
 `
