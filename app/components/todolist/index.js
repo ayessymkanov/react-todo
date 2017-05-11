@@ -7,11 +7,6 @@ class TodoList extends Component {
         return(
             <List>
                 <TodoItem />
-                <TodoItem />
-                <TodoItem />
-                <TodoItem />
-                <TodoItem />
-                
             </List>
         )
     }
