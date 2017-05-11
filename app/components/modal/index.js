@@ -4,10 +4,11 @@ import {ModalContainer, Input, CloseBtn} from './styles'
 class Modal extends Component {
     render() {
         console.log(this.props)
+        let { addTodo } = this.props
         return (
 
                 <ModalContainer>
-                    <form action="">
+                    <form onSubmit={addTodo}>
                         <Input type="text" placeholder="Enter a title for new TODO"/>
                         <Input type="submit" value="Done"/>
                         <CloseBtn onClick={this.props.onClick}></CloseBtn>
@@ -15,6 +16,7 @@ class Modal extends Component {
                 </ModalContainer>
         )
     }
+
 }
 
 export default Modal

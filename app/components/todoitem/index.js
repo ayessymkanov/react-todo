@@ -3,9 +3,10 @@ import {TodoContainer, Text, Controls, Button} from './styles'
 
 class TodoItem extends Component {
     render() {
+        console.log('Todoitem props', this.props)
         return(
             <TodoContainer>
-                <Text>This is simpled todo item</Text>
+                <Text>{this.props.todo.title}</Text>
                 <Controls>
                     <Button onClick={this.todoDone}>d</Button>
                     <Button onClick={this.todoRemove}>r</Button>

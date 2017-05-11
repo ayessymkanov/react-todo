@@ -4,6 +4,8 @@ import TodoList from '../todolist'
 import AddTodo from '../addtodo'
 import Sort from '../sort'
 import Modal from '../modal'
+import {connect} from 'react-redux'
+import {addTodo} from '../../action_creators/addTodo'
 
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup'
 import './transition.css'
@@ -15,6 +17,7 @@ class Home extends Component {
     }
 
     render() {
+        console.log(this.props)
         return (
             <div>
                 <TodoListContainer>
@@ -25,7 +28,7 @@ class Home extends Component {
                             <Button onClick={this.openModal}>+ Add new Todo</Button>
                         </ControlButtons>
                     </Menubar>
-                    <TodoList />
+                    <TodoList todos={this.props.todos} />
                     <CSSTransitionGroup
                         transitionName="modal"
                         transitionEnterTimeout={150}
@@ -43,8 +46,16 @@ class Home extends Component {
             return null
         }
         return(
-            <Modal onClick={this.openModal} />
+            <Modal onClick={this.openModal} addTodo={this.addNewTodo} />
         )
+    }
+
+    addNewTodo = (e) => {
+        e.preventDefault()
+        console.log(e.currentTarget.children[0].value)
+        window.target = e.currentTarget
+        this.openModal()
+        this.props.addTodo({title: e.currentTarget.children[0].value})
     }
 
     openModal = () => {
@@ -55,4 +66,8 @@ class Home extends Component {
 
 }
 
-export default Home
+export default connect((state) => {
+    return {
+        todos: state.todolistReducer.todolist
+    }
+}, {addTodo})(Home)
