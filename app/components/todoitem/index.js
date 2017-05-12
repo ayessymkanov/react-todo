@@ -5,6 +5,9 @@ import {removeTodo} from '../../action_creators/removeTodo'
 import {done} from '../../action_creators/done'
 import './styles.css'
 
+import FaCheckCircleO from 'react-icons/fa/check-circle-o'
+import FaClose from 'react-icons/fa/close'
+
 class TodoItem extends Component {
     render() {
         console.log('Todoitem props', this.props)
@@ -14,8 +17,8 @@ class TodoItem extends Component {
             <TodoContainer>
                 <Text className={className}>{title}</Text>
                 <Controls>
-                    <Button onClick={this.todoDone}>d</Button>
-                    <Button onClick={this.todoRemove}>r</Button>
+                    <Button onClick={this.todoDone}><FaCheckCircleO /></Button>
+                    <Button onClick={this.todoRemove}><FaClose /></Button>
                 </Controls>
             </TodoContainer>
         )
