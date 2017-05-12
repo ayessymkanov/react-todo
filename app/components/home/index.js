@@ -19,25 +19,22 @@ class Home extends Component {
     render() {
         console.log(this.props)
         return (
-            <div>
-                <TodoListContainer>
-                    <Menubar>
-                        <Title>TODO App</Title>
-                        <ControlButtons>
-                            <Sort />
-                            <Button onClick={this.openModal}>+ Add new Todo</Button>
-                        </ControlButtons>
-                    </Menubar>
-                    <TodoList todos={this.props.todos} />
-                    <CSSTransitionGroup
-                        transitionName="modal"
-                        transitionEnterTimeout={150}
-                        transitionLeaveTimeout={150}>
-                        {this.modal()}
-                    </CSSTransitionGroup>
-                </TodoListContainer>
-                <Credits>&copy; 2017</Credits>
-            </div>
+            <TodoListContainer>
+                <Menubar>
+                    <Title>TODO App</Title>
+                    <ControlButtons>
+                        <Sort sortDone={this.props.sortDone} />
+                        <Button onClick={this.openModal}>+ Add new Todo</Button>
+                    </ControlButtons>
+                </Menubar>
+                <TodoList todos={this.props.todos} />
+                <CSSTransitionGroup
+                    transitionName="modal"
+                    transitionEnterTimeout={150}
+                    transitionLeaveTimeout={150}>
+                    {this.modal()}
+                </CSSTransitionGroup>
+            </TodoListContainer>
         )
     }
 
@@ -55,7 +52,11 @@ class Home extends Component {
         console.log(e.currentTarget.children[0].value)
         window.target = e.currentTarget
         this.openModal()
-        this.props.addTodo({title: e.currentTarget.children[0].value})
+        this.props.addTodo({
+            id: Math.floor(Math.random() * Math.random() * 200),
+            title: e.currentTarget.children[0].value,
+            done: false
+        })
     }
 
     openModal = () => {

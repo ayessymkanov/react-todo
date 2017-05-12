@@ -9,7 +9,7 @@ class Modal extends Component {
 
                 <ModalContainer>
                     <form onSubmit={addTodo}>
-                        <Input type="text" placeholder="Enter a title for new TODO"/>
+                        <Input type="text" autofocus placeholder="Enter a title for new TODO"/>
                         <Input type="submit" value="Done"/>
                         <CloseBtn onClick={this.props.onClick}></CloseBtn>
                     </form>

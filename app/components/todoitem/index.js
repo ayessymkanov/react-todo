@@ -1,12 +1,18 @@
 import React, {Component} from 'react'
 import {TodoContainer, Text, Controls, Button} from './styles'
+import {connect} from 'react-redux'
+import {removeTodo} from '../../action_creators/removeTodo'
+import {done} from '../../action_creators/done'
+import './styles.css'
 
 class TodoItem extends Component {
     render() {
         console.log('Todoitem props', this.props)
+        const { title, id, done } = this.props.todo
+        const className = done ? 'done' : 'active'
         return(
             <TodoContainer>
-                <Text>{this.props.todo.title}</Text>
+                <Text className={className}>{title}</Text>
                 <Controls>
                     <Button onClick={this.todoDone}>d</Button>
                     <Button onClick={this.todoRemove}>r</Button>
@@ -15,11 +21,13 @@ class TodoItem extends Component {
         )
     }
     todoDone = () => {
-        console.log('item done')
+        const { id }  = this.props.todo
+        this.props.done(id)
     }
     todoRemove = () => {
-        console.log('item removed')
+        const { id }  = this.props.todo
+        this.props.removeTodo(id)
     }
 }
 
-export default TodoItem
+export default connect(null, {removeTodo, done})(TodoItem)
