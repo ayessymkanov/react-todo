@@ -12,22 +12,41 @@ import './transition.css'
 
 class Home extends Component {
 
-    state = {
-        isModalOpen: false
+    constructor(props) {
+        super(props)
+        this.state = {
+            isModalOpen: false,
+            whichList: 'all'
+        }
     }
 
     render() {
-        console.log(this.props)
+        let list;
+        switch(this.state.whichList) {
+            case 'all':
+                list = this.props.todosAll
+                break
+            case 'active':
+                list = this.props.todosActive
+                break
+            case 'done':
+                list = this.props.todosDone
+                break
+        }
         return (
             <TodoListContainer>
                 <Menubar>
                     <Title>TODO App</Title>
                     <ControlButtons>
-                        <Sort sortDone={this.props.sortDone} />
+                        <Sort
+                            sortDone={this.sortDone}
+                            sortActive={this.sortActive}
+                            sortAll={this.sortAll}
+                            activeList={this.state.whichList} />
                         <Button onClick={this.openModal}>+ Add new Todo</Button>
                     </ControlButtons>
                 </Menubar>
-                <TodoList todos={this.props.todos} />
+                <TodoList todos={list} />
                 <CSSTransitionGroup
                     transitionName="modal"
                     transitionEnterTimeout={150}
@@ -65,10 +84,31 @@ class Home extends Component {
         })
     }
 
+    sortDone = () => {
+        this.setState({
+            whichList: 'done'
+        })
+    }
+
+    sortActive = () => {
+        this.setState({
+            whichList: 'active'
+        })
+    }
+
+    sortAll = () => {
+        this.setState({
+            whichList: 'all'
+        })
+    }
+
 }
 
 export default connect((state) => {
     return {
-        todos: state.todolistReducer.todolist
+        todos: state.todolistReducer.todolistAll,
+        todosAll: state.todolistReducer.todolistAll,
+        todosActive: state.todolistReducer.todolistAll.filter(item => !item.done),
+        todosDone: state.todolistReducer.todolistAll.filter(item => item.done)
     }
 }, {addTodo})(Home)

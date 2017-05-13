@@ -5,11 +5,11 @@ export const SortContainer = styled.div`
 `
 
 export const SortItem = styled.a`
-    line-height: 2;
+    line-height: 1.5;
     text-decoration: none;
     color: #555;
 
-    &:first-child {
+    &:not(:last-child) {
         margin-right: 20px;
     }
 `
