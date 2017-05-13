@@ -13,15 +13,16 @@ class TodoList extends Component {
         const todoItems = todos.map(todo => {
             return <ListItem key={todo.id}><TodoItem todo={todo} /></ListItem>
         })
-        
+
         return(
             <List>
+                {!todos.length ? 'Sorry, no items in this list' :
                 <CSSTransitionGroup
                     transitionName="modal"
                     transitionEnterTimeout={150}
                     transitionLeaveTimeout={150}>
                     {todoItems}
-                </CSSTransitionGroup>
+                </CSSTransitionGroup>}
             </List>
         )
     }

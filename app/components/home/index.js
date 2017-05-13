@@ -106,7 +106,6 @@ class Home extends Component {
 
 export default connect((state) => {
     return {
-        todos: state.todolistReducer.todolistAll,
         todosAll: state.todolistReducer.todolistAll,
         todosActive: state.todolistReducer.todolistAll.filter(item => !item.done),
         todosDone: state.todolistReducer.todolistAll.filter(item => item.done)
