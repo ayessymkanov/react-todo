@@ -16,13 +16,14 @@ class TodoList extends Component {
 
         return(
             <List>
-                {!todos.length ? 'Sorry, no items in this list' :
-                <CSSTransitionGroup
-                    transitionName="modal"
-                    transitionEnterTimeout={150}
-                    transitionLeaveTimeout={150}>
-                    {todoItems}
-                </CSSTransitionGroup>}
+                {!todos.length ? 'No items in this list' :
+                    <CSSTransitionGroup
+                        transitionName="modal"
+                        transitionEnterTimeout={150}
+                        transitionLeaveTimeout={150}>
+                        {todoItems}
+                    </CSSTransitionGroup>
+                }
             </List>
         )
     }

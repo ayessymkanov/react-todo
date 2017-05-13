@@ -43,7 +43,7 @@ class Home extends Component {
                             sortActive={this.sortActive}
                             sortAll={this.sortAll}
                             activeList={this.state.whichList} />
-                        <Button onClick={this.openModal}>+ Add new Todo</Button>
+                        <Button onClick={this.openModal}>Add new Todo</Button>
                     </ControlButtons>
                 </Menubar>
                 <TodoList todos={list} />

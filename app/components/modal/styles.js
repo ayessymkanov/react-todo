@@ -28,9 +28,8 @@ export const Input = styled.input`
     }
 
     &[type=submit] {
-        background: #36D1DC;
-        background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);
-        background: linear-gradient(to right, #5B86E5, #36D1DC);
+        background: #457fca;
+        border: 1px solid #457fca;
         color: white;
     }
 `

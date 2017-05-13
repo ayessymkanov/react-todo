@@ -1,8 +1,8 @@
 .done {
     text-decoration: line-through;
-    color: red;
+    color: #d11141;
 }
 
 .active {
-    color: green;
+    color: #00b159;
 }
