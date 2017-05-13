@@ -13,7 +13,7 @@ class TodoList extends Component {
         const todoItems = todos.map(todo => {
             return <ListItem key={todo.id}><TodoItem todo={todo} /></ListItem>
         })
-        console.log('Todo items mapped', todoItems)
+        
         return(
             <List>
                 <CSSTransitionGroup

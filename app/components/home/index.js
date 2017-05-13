@@ -53,7 +53,7 @@ class Home extends Component {
         window.target = e.currentTarget
         this.openModal()
         this.props.addTodo({
-            id: Math.floor(Math.random() * Math.random() * 200),
+            id: Math.floor(Math.random() * 200),
             title: e.currentTarget.children[0].value,
             done: false
         })

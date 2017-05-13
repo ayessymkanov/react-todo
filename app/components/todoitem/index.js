@@ -10,9 +10,9 @@ import FaClose from 'react-icons/fa/close'
 
 class TodoItem extends Component {
     render() {
-        console.log('Todoitem props', this.props)
         const { title, id, done } = this.props.todo
         const className = done ? 'done' : 'active'
+
         return(
             <TodoContainer>
                 <Text className={className}>{title}</Text>
@@ -23,10 +23,12 @@ class TodoItem extends Component {
             </TodoContainer>
         )
     }
+
     todoDone = () => {
         const { id }  = this.props.todo
         this.props.done(id)
     }
+    
     todoRemove = () => {
         const { id }  = this.props.todo
         this.props.removeTodo(id)
