@@ -7,6 +7,8 @@ import Modal from '../modal'
 import {connect} from 'react-redux'
 import {addTodo} from '../../action_creators/addTodo'
 
+import 'sanitize.css'
+
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup'
 import './transition.css'
 
