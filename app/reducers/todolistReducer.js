@@ -7,7 +7,7 @@ const initialState = {
 
 export function todolistReducer(state = initialState, action) {
     const { type, payload } = action
-    let index = state.todolistAll.findIndex(item => item.id === payload)
+    const index = state.todolistAll.findIndex(item => item.id === payload)
 
     switch(type) {
         case ADD_TODO: {
